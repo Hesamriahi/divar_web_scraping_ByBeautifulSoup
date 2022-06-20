@@ -1,11 +1,11 @@
-import time
+# import time
 from index_module.models import Advertise
 from urllib.parse import unquote, urlparse
 from pathlib import PurePosixPath
 import requests
 from bs4 import BeautifulSoup
 
-import threading
+# import threading
 
 
 # import asyncio
@@ -37,8 +37,7 @@ def import_from_divar():
 
         except:
             pass
-    # print(saveList)
-    # print(f'list length is : {len(saveList)}')
+
     saveList.reverse()
 
     for ad in saveList:
