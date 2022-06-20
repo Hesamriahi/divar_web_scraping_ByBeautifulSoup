@@ -28,7 +28,7 @@ def import_from_divar():
     for advertise in advertises:
         try:
             advertiseDict = {
-                'title': advertise.find('div', {'class': 'kt-post-card__title'}),
+                'title': advertise.find('h2', {'class': 'kt-post-card__title'}),
                 'price': advertise.find('div', {'class': 'kt-post-card__description'}),
                 'description': advertise.find('span', {'class': 'kt-post-card__bottom-description kt-text-truncate'}),
                 'url_link': 'https://divar.ir' + (advertise.select_one('a')['href']).strip(),
@@ -50,7 +50,9 @@ def import_from_divar():
                                           description=ad['description'].text if ad['description'] is not None else '',
                                           advertise_url=ad['url_link'],
                                           slug=hereSlug)
-
+                new_advertise.save()
+            else:
+                pass
         except:
             pass
 
