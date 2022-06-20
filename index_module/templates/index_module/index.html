@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Divar web Scraping</title>
+    <link type="text/css" href="/static/css/style.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="limiter">
+    <div class="container-table100">
+        <div class="wrap-table100">
+            <div class="table100">
+                <table>
+                    <thead>
+                    <tr class="table100-head">
+                        <th class="column1">شناسه</th>
+                        <th class="column2">نام آگهی</th>
+                        <th class="column3">قیمت</th>
+                        <th class="column4">توضیحات</th>
+                        <th class="column5">تاریخ</th>
+                        <th class="column6">لینک</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for advertise in advertises %}
+                        <tr>
+                            <td class="column1">{{ advertise.id }}</td>
+                            <td class="column2">{{ advertise.title }}</td>
+                            <td class="column3">{{ advertise.price }}</td>
+                            <td class="column4">{{ advertise.description }}</td>
+                            <td class="column5">{{ advertise.create_date }}</td>
+                            <td class="column6"><a target="_blank" href="{{ advertise.advertise_url }}">لینک</a></td>
+                        </tr>
+                    {% endfor %}
+
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</body><!-- This template has been downloaded from Webrubik.com -->
+</html>
