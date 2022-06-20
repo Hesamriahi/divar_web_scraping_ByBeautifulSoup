@@ -37,8 +37,8 @@ def import_from_divar():
 
         except:
             pass
-    print(saveList)
-    print(f'list length is : {len(saveList)}')
+    # print(saveList)
+    # print(f'list length is : {len(saveList)}')
     saveList.reverse()
 
     for ad in saveList:
@@ -47,15 +47,11 @@ def import_from_divar():
             check_unique_inDB: bool = Advertise.objects.filter(slug__iexact=hereSlug).exists()
             if check_unique_inDB == False:
                 new_advertise = Advertise(title=ad['title'].text,
-                                          price=ad['price'].text,
-                                          description=ad['description'].text,
+                                          price=ad['price'].text if ad['price'] is not None else '',
+                                          description=ad['description'].text if ad['description'] is not None else '',
                                           advertise_url=ad['url_link'],
                                           slug=hereSlug)
-                # print(new_advertise)
-                new_advertise.save()
-                print('*----------*')
-                print(new_advertise)
-                print('*----------*')
+
         except:
             pass
 
